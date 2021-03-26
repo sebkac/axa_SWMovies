@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SWMovies.Models.Movie>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h1>Star Wars Movies</h1>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <p>
+            Get details of any Star Wars movie .
+            Leave your review
+        </p>
+    </div>
+    
+    <table class="table">
+        <tr>
+            <th>
+               Episode
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
